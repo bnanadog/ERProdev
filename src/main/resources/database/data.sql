@@ -216,7 +216,6 @@ insert into invoice_item values (null, 19, 3, "가방 마감 직사각 링", "�
 insert into invoice_item values (null, 20, 22, "radius 픽시 브레이크레버", "개(EA)", "55(mm)", 600, 900, 10, 594000);
 
 
-<<<<<<< HEAD
 insert into bom values (1, 29, 10, 150, "-");
 insert into bom values (2, 29, 11, 200, "-");
 insert into bom values (3, 29, 12, 480, "-");
@@ -267,58 +266,6 @@ insert into bom values (47, 33, 5, 99, "-");
 insert into bom values (48, 33, 4, 47, "-");
 insert into bom values (49, 33, 3, 20, "-");
 insert into bom values (50, 33, 2, 180, "-");
-=======
-insert into BOM values (1, 29, 10, 150, "-");
-insert into BOM values (2, 29, 11, 200, "-");
-insert into BOM values (3, 29, 12, 480, "-");
-insert into BOM values (4, 29, 14, 35, "-");
-insert into BOM values (5, 29, 16, 300, "-");
-insert into BOM values (6, 29, 17, 350, "-");
-insert into BOM values (7, 29, 19, 120, "-");
-insert into BOM values (8, 29, 23, 19, "-");
-insert into BOM values (9, 29, 24, 67, "-");
-insert into BOM values (10, 30, 11, 8, "-");
-insert into BOM values (11, 30, 13, 40, "-");
-insert into BOM values (12, 30, 15, 78, "-");
-insert into BOM values (13, 30, 16, 110, "-");
-insert into BOM values (14, 30, 18, 230, "-");
-insert into BOM values (15, 30, 19, 950, "-");
-insert into BOM values (16, 30, 22, 45, "-");
-insert into BOM values (17, 30, 23, 87, "-");
-insert into BOM values (18, 30, 25, 360, "-");
-insert into BOM values (19, 30, 27, 174, "-");
-insert into BOM values (20, 30, 28, 30, "-");
-insert into BOM values (21, 31, 11, 50, "-");
-insert into BOM values (22, 31, 12, 130, "-");
-insert into BOM values (23, 31, 22, 20, "-");
-insert into BOM values (24, 31, 23, 70, "-");
-insert into BOM values (25, 31, 27, 95, "-");
-insert into BOM values (26, 31, 28, 43, "-");
-insert into BOM values (27, 31, 25, 32, "-");
-insert into BOM values (28, 31, 24, 77, "-");
-insert into BOM values (29, 32, 14, 65, "-");
-insert into BOM values (30, 32, 13, 22, "-");
-insert into BOM values (31, 32, 12, 34, "-");
-insert into BOM values (32, 32, 16, 12, "-");
-insert into BOM values (33, 32, 18, 90, "-");
-insert into BOM values (34, 32, 19, 50, "-");
-insert into BOM values (35, 32, 20, 70, "-");
-insert into BOM values (36, 33, 1, 70, "-");
-insert into BOM values (37, 32, 2, 100, "-");
-insert into BOM values (38, 32, 3, 20, "-");
-insert into BOM values (39, 32, 4, 40, "-");
-insert into BOM values (40, 32, 5, 60, "-");
-insert into BOM values (41, 32, 6, 88, "-");
-insert into BOM values (42, 32, 7, 72, "-");
-insert into BOM values (43, 33, 9, 80, "-");
-insert into BOM values (44, 33, 8, 12, "-");
-insert into BOM values (45, 33, 7, 15, "-");
-insert into BOM values (46, 33, 6, 45, "-");
-insert into BOM values (47, 33, 5, 99, "-");
-insert into BOM values (48, 33, 4, 47, "-");
-insert into BOM values (49, 33, 3, 20, "-");
-insert into BOM values (50, 33, 2, 180, "-");
->>>>>>> yoojin-ver2
 
 
 insert into inventory values (1, 10, "슈발베 RAPID ROB 폴딩 타이어", 1, 200, 10000, 100, 150, 200, 300, 200, 300, 100);

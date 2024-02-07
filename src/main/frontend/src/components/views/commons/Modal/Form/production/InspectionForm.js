@@ -11,7 +11,7 @@ const InspectionForm = () => {
     // 신청자 / 검수자 id가 아니라 name인 것 주의
     <div>
       <Row gutter={16}>
-        <Col span={12}>
+        <Col span={16}>
           <Form.Item name="id" noStyle>
             <Input type="hidden" />
           </Form.Item>
@@ -25,7 +25,7 @@ const InspectionForm = () => {
               },
             ]}
           >
-            <Input style={{ width: "300px" }} />
+            <Input style={{ width: "200px" }} />
           </Form.Item>
           <Form.Item
             label="신청자"
@@ -37,7 +37,7 @@ const InspectionForm = () => {
               },
             ]}
           >
-            <Input style={{ width: "300px" }} />
+            <Input style={{ width: "200px" }} />
           </Form.Item>
           <Form.Item
             label="품목번호"
@@ -49,7 +49,7 @@ const InspectionForm = () => {
               },
             ]}
           >
-            <Input style={{ width: "300px" }} />
+            <Input style={{ width: "200px" }} />
           </Form.Item>
           <Form.Item
             label="품목명"
@@ -61,16 +61,16 @@ const InspectionForm = () => {
               },
             ]}
           >
-            <Input style={{ width: "300px" }} />
+            <Input style={{ width: "200px" }} />
           </Form.Item>
           <Form.Item label="단위" name="unit">
-            <Input style={{ width: "300px" }} />
+            <Input style={{ width: "200px" }} />
           </Form.Item>
           <Form.Item
             label="규격"
             name="spec"
           >
-            <Input style={{ width: "300px" }} />
+            <Input style={{ width: "200px" }} />
           </Form.Item>
           <Form.Item
             label="생산량"
@@ -82,10 +82,10 @@ const InspectionForm = () => {
               },
             ]}
           >
-            <Input style={{ width: "300px" }} />
+            <Input style={{ width: "200px" }} />
           </Form.Item>
         </Col>
-        <Col span={12}>
+        <Col span={12} style={{ marginLeft: "-200px" }}>
           <Form.Item
             label="검수자"
             name="inspectorName"
@@ -96,7 +96,7 @@ const InspectionForm = () => {
               },
             ]}
           >
-            <Input style={{ width: "300px" }} />
+            <Input style={{ width: "200px" }} />
           </Form.Item>
 
           <Form.Item
@@ -109,7 +109,7 @@ const InspectionForm = () => {
               },
             ]}
           >
-            <Input style={{ width: "300px" }} />
+            <Input style={{ width: "200px" }} />
           </Form.Item>
           <Form.Item
             label="부적격"
@@ -121,7 +121,7 @@ const InspectionForm = () => {
               },
             ]}
           >
-            <Input style={{ width: "300px" }} />
+            <Input style={{ width: "200px" }} />
           </Form.Item>
           <Form.Item
             label="합격여부"

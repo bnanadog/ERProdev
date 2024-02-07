@@ -1,10 +1,10 @@
 // 정유진
-import { Form, Input, Select, DatePicker } from "antd";
+import { Form, Input, Radio, DatePicker } from "antd"
+import fetchApi from "../../../../../../modules/api";
 
 const OrdersForm = () => {
   return (
     <div>
-      <div>
         <Form.Item name="id" noStyle>
           <Input type="hidden" />
         </Form.Item>
@@ -18,10 +18,10 @@ const OrdersForm = () => {
             },
           ]}
         >
-          <Select>
-            <Select.Option value="구매">구매</Select.Option>
-            <Select.Option value="판매">판매</Select.Option>
-          </Select>
+          <Radio.Group value="거래 구분">
+            <Radio value="구매">구매</Radio>
+            <Radio value="판매">판매</Radio>
+          </Radio.Group>
         </Form.Item>
         <Form.Item
           label="거래처명"
@@ -62,7 +62,6 @@ const OrdersForm = () => {
         <Form.Item label="완료일" name="completionDate">
           <DatePicker />
         </Form.Item>
-      </div>
     </div>
   );
 };
