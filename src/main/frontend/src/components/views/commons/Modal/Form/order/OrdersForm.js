@@ -1,67 +1,118 @@
 // 정유진
-import { Form, Input, Radio, DatePicker } from "antd"
+import React, { useEffect, useState } from "react";
+import { Form, Input, Radio, DatePicker, Select } from "antd"
 import fetchApi from "../../../../../../modules/api";
 
+const filterOption = (input, option) =>
+  (option?.value ?? "").toLowerCase().includes(input.toLowerCase());
+
 const OrdersForm = () => {
+  const [list, setList] = useState([]);
+  const [subList, setSubList] = useState([]);
+
+  const onChange = (value) => {
+    fetchSubList(value);
+  };
+
+  useEffect(() => {
+    fetchList();
+  }, []);
+
+  const fetchList = async () => {
+    try {
+      const response = await fetchApi.get("/account");
+      setList(response.data.data);
+    } catch (error) {
+      console.error("목록 조회 에러:", error);
+    }
+  };
+
+  const fetchSubList = async (value) => {
+    try {
+      const response = await fetchApi.get(`/account/bnm/${value}`);
+      setSubList(response.data.data);
+    } catch (error) {
+      console.error("목록 조회 에러:", error);
+    }
+  };
+
   return (
     <div>
-        <Form.Item name="id" noStyle>
-          <Input type="hidden" />
-        </Form.Item>
-        <Form.Item
-          label="유형"
-          name="sort"
-          rules={[
-            {
-              required: true,
-              message: "유형을 선택해주세요",
-            },
-          ]}
-        >
-          <Radio.Group value="거래 구분">
-            <Radio value="구매">구매</Radio>
-            <Radio value="판매">판매</Radio>
-          </Radio.Group>
-        </Form.Item>
-        <Form.Item
-          label="거래처명"
-          name="bnm"
-          rules={[
-            {
-              required: true,
-              message: "거래처명을 입력해주세요",
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          label="사업자등록번호"
-          name="bno"
-          rules={[
-            {
-              required: true,
-              message: "사업자등록번호를 입력해주세요",
-            },
-          ]}
-        >
-          <Input readOnly />
-        </Form.Item>
-        <Form.Item
-          label="예정일"
-          name="dueDate"
-          rules={[
-            {
-              required: true,
-              message: "유형을 선택해주세요",
-            },
-          ]}
-        >
-          <DatePicker />
-        </Form.Item>
-        <Form.Item label="완료일" name="completionDate">
-          <DatePicker />
-        </Form.Item>
+      <Form.Item name="id" noStyle>
+        <Input type="hidden" />
+      </Form.Item>
+      <Form.Item
+        label="유형"
+        name="sort"
+        rules={[
+          {
+            required: true,
+            message: "유형을 선택해주세요",
+          },
+        ]}
+      >
+        <Radio.Group value="거래 구분">
+          <Radio value="구매">구매</Radio>
+          <Radio value="판매">판매</Radio>
+        </Radio.Group>
+      </Form.Item>
+      <Form.Item
+        label="거래처명"
+        name="bnm"
+        rules={[
+          {
+            required: true,
+            message: "거래처명을 입력해주세요",
+          },
+        ]}
+      >
+      <Select
+        showSearch
+        placeholder="거래처명"
+        optionFilterProp="children"
+        onChange={onChange}
+        filterOption={filterOption}
+      >
+        {list.map((account) => (
+          <Select.Option key={account.bnm} label={account.bnm}>
+            {account.bnm}
+          </Select.Option>
+        ))}
+      </Select>
+      </Form.Item>
+      <Form.Item
+        label="사업자등록번호"
+        name="bno"
+        rules={[
+          {
+            required: true,
+            message: "사업자등록번호를 입력해주세요",
+          },
+        ]}
+      >
+        <Select showSearch placeholder="사업자등록번호" optionFilterProp="children">
+          {subList.map((value) => (
+            <Select.Option key={value} value={value}>
+              {value}
+            </Select.Option>
+          ))}
+        </Select>
+      </Form.Item>
+      <Form.Item
+        label="예정일"
+        name="dueDate"
+        rules={[
+          {
+            required: true,
+            message: "유형을 선택해주세요",
+          },
+        ]}
+      >
+        <DatePicker />
+      </Form.Item>
+      <Form.Item label="완료일" name="completionDate">
+        <DatePicker />
+      </Form.Item>
     </div>
   );
 };

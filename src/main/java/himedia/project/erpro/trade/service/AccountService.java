@@ -4,14 +4,14 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import himedia.project.erpro.trade.dto.AccountDto;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import himedia.project.erpro.trade.dto.AccountDto;
 import himedia.project.erpro.trade.entity.Account;
 import himedia.project.erpro.trade.repository.AccountRepository;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -41,6 +41,12 @@ public class AccountService {
 		AccountDto accountDto = account.toDto();
 
 		return accountDto;
+	}
+	
+	// 거래처 사업자 등록번호 상세 조회 - 정유진
+	public List<String> getBnoByBnm(String name){
+		List<String> idList = accountRepository.findBnoByBnm(name);
+		return idList;
 	}
   
 	// 거래처 추가

@@ -73,6 +73,7 @@ insert into account values (null, "민시호", "876-54-32109", "어드벤처사�
 insert into account values (null, "이사라", "210-98-76543", "바이크마스터", "매출처", "한무제", "운동용품 및 자전거 소매업", "자전거 및 자전거 용품 소매", "051-8901-2345", "부산광역시 사하구 다대로 27-1 612호", "zigzag@gmail.com");  
 
 select * from account;
+SELECT b_nm FROM account WHERE b_no;
 
 ## 주문 번호, 거래처명, 사업자등록번호, 유형(구매/판매), 예정일, 완료일
 insert into orders values (1, "퓨어그로우 바이크", "654-32-10987", "판매", "2023-06-25", "2023-07-10");

@@ -39,6 +39,14 @@ public class AccountController {
 		return new ResponseEntity<>(returnData, HttpStatus.OK);
 	}
 	
+	// 거래처명이 일치하는 사업자등록번호 조회 - 정유진
+	@GetMapping("/account/bnm/{bnm}")
+	public ResponseEntity<Message> detailAccount(@PathVariable(value="bnm") String bnm){
+		List<String> idList = accountService.getBnoByBnm(bnm);
+		Message returnData = new Message("거래처명과 일치하는 사업자번호", idList);
+		return new ResponseEntity<>(returnData, HttpStatus.OK);
+	}
+	
 	// 거래처 추가 - 김주원
 	@PostMapping("/account")
 	public ResponseEntity<Message> addAccount(@RequestBody AccountDto accountDto) {
