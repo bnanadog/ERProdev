@@ -78,7 +78,7 @@ const Navbar = ({ onMenuChange }) => {
     >
       <div style={{ display: "flex", alignItems: "center" }}>
         <img
-          style={{ width: "150px", margin: "20px 20px 12px 20px" }}
+          style={{ width: "150px", margin: "20px 20px 12px 20px", flex: "1 0 auto" }}
           src={logo}
           alt="logo"
         />

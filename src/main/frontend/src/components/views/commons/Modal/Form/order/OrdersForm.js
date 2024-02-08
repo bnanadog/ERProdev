@@ -4,21 +4,21 @@ import { Form, Input, Radio, DatePicker, Select } from "antd"
 import fetchApi from "../../../../../../modules/api";
 
 const filterOption = (input, option) =>
-  (option?.value ?? "").toLowerCase().includes(input.toLowerCase());
+  (option?.label ?? "").toLowerCase().includes(input.toLowerCase());
 
 const OrdersForm = () => {
   const [list, setList] = useState([]);
-  const [subList, setSubList] = useState([]);
+  const [selectedAccount, setSelectedAccount] = useState([]);
 
-  const onChange = (value) => {
-    fetchSubList(value);
-  };
+  const handleBnmChange = (value) => {
+    setSelectedAccount(value);
+  }
 
   useEffect(() => {
-    fetchList();
+    fetcAccountBnoList();
   }, []);
 
-  const fetchList = async () => {
+  const fetcAccountList = async (value) => {
     try {
       const response = await fetchApi.get("/account");
       setList(response.data.data);
@@ -27,10 +27,10 @@ const OrdersForm = () => {
     }
   };
 
-  const fetchSubList = async (value) => {
+  const fetcAccountBnoList = async (value) => {
     try {
       const response = await fetchApi.get(`/account/bnm/${value}`);
-      setSubList(response.data.data);
+      setList(response.data.data);
     } catch (error) {
       console.error("목록 조회 에러:", error);
     }
@@ -66,19 +66,19 @@ const OrdersForm = () => {
           },
         ]}
       >
-      <Select
-        showSearch
-        placeholder="거래처명"
-        optionFilterProp="children"
-        onChange={onChange}
-        filterOption={filterOption}
-      >
-        {list.map((account) => (
-          <Select.Option key={account.bnm} label={account.bnm}>
-            {account.bnm}
-          </Select.Option>
-        ))}
-      </Select>
+        <Select
+          showSearch
+          placeholder="거래처명"
+          optionFilterProp="children"
+          onChange={handleBnmChange}
+          filterOption={filterOption}
+        >
+          {list.map((account) => (
+            <Select.Option key={account.bnm} label={account.bnm}>
+              {account.bnm}
+            </Select.Option>
+          ))}
+        </Select>
       </Form.Item>
       <Form.Item
         label="사업자등록번호"
@@ -90,13 +90,7 @@ const OrdersForm = () => {
           },
         ]}
       >
-        <Select showSearch placeholder="사업자등록번호" optionFilterProp="children">
-          {subList.map((value) => (
-            <Select.Option key={value} value={value}>
-              {value}
-            </Select.Option>
-          ))}
-        </Select>
+        <Input value={selectedAccount?.bno || ''} />
       </Form.Item>
       <Form.Item
         label="예정일"
