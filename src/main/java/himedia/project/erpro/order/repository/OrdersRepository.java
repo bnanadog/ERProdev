@@ -16,7 +16,7 @@ public interface OrdersRepository extends JpaRepository<Orders, Long>{
 	
 	@Query(value = "SELECT * FROM orders WHERE b_nm = :bnm", nativeQuery = true)
 	List<Orders> findAllByBnm(@Param("bnm") String bnm);
-	
-	@Transactional
+
 	public int deleteAllByIdIn(List<Long> idList);
 }
+

@@ -97,6 +97,10 @@ insert into orders values (18, "스피드사이클", "210-98-76543", "판매", "
 insert into orders values (19, "트렌드토트", "765-43-21098", "구매", "2024-01-15", "2023-01-18");
 insert into orders values (20, "금수강산", "890-12-34567", "판매", "2024-02-08", "2023-02-14");
 
+show tables;
+select * from orders;
+SELECT id FROM orders WHERE b_nm;
+
 ## 주문품목번호, 주문번호, 구분, 품목번호, 품목명, 단위, 규격, 수량, 단가, 부가세, 합계금액
 insert into orders_item values (1, 1, "자재", 13, "DST-2060 3베어링 와이드 경량페달", "개(EA)", "85*85(mm)", 50, 28000, 10, 1540000);
 insert into orders_item values (2, 2, "자재", 20, "BARADINE 로드 접이식 자전거용 V브레이크패드", "개(EA)", "55(mm)", 100, 6000, 10, 660000);

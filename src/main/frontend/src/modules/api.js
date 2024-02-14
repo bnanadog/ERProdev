@@ -29,7 +29,7 @@ fetchApi.interceptors.response.use(
     return response;
   },
   (error) => {
-    if (error.response.status === 500) {
+    if (error.response.status === 403) {
       // 토큰인증 만료
       // 로컬 스토리지 비우기
       localStorage.clear();

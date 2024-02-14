@@ -8,33 +8,37 @@ const filterOption = (input, option) =>
 
 const OrdersForm = () => {
   const [list, setList] = useState([]);
-  const [selectedAccount, setSelectedAccount] = useState([]);
+  const [AccountBnoList, setAccountBnoList] = useState([]);
 
-  const handleBnmChange = (value) => {
-    setSelectedAccount(value);
+  const changeBnm = (value) => {
+    fetchAccountList(value);
+  };
+
+  const changeBno = (value) => {
+    fetchAccountBnoList(value);
   }
 
   useEffect(() => {
-    fetcAccountBnoList();
+    fetchAccountList();
   }, []);
 
-  const fetcAccountList = async (value) => {
+  const fetchAccountList = async () => {
     try {
       const response = await fetchApi.get("/account");
       setList(response.data.data);
     } catch (error) {
-      console.error("목록 조회 에러:", error);
+      console.error("거래처 목록 조회 에러 : ", error);
     }
-  };
+  }
 
-  const fetcAccountBnoList = async (value) => {
+  const fetchAccountBnoList = async (value) => {
     try {
       const response = await fetchApi.get(`/account/bnm/${value}`);
-      setList(response.data.data);
+      setAccountBnoList(response.data.data);
     } catch (error) {
-      console.error("목록 조회 에러:", error);
+      console.error("사업자 등록번호 조회 에러 : ", error);
     }
-  };
+  }
 
   return (
     <div>
@@ -70,11 +74,12 @@ const OrdersForm = () => {
           showSearch
           placeholder="거래처명"
           optionFilterProp="children"
-          onChange={handleBnmChange}
+          onChange={changeBnm}
           filterOption={filterOption}
         >
           {list.map((account) => (
-            <Select.Option key={account.bnm} label={account.bnm}>
+            <Select.Option key={account.bnm} 
+            value={account.bnm} label={account.bnm}>
               {account.bnm}
             </Select.Option>
           ))}
@@ -90,7 +95,18 @@ const OrdersForm = () => {
           },
         ]}
       >
-        <Input value={selectedAccount?.bno || ''} />
+        <Select
+          showSearch
+          placeholder="사업자 등록번호"
+          optionFilterProp="children"
+          onChange={changeBno}
+        >
+          {AccountBnoList.map((account) => (
+            <Select.Option value={account.bno} key={account.bno}>
+              {account.bno}
+            </Select.Option>
+          ))}
+        </Select>
       </Form.Item>
       <Form.Item
         label="예정일"
