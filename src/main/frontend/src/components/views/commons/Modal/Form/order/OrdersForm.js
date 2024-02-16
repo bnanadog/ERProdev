@@ -10,19 +10,15 @@ const OrdersForm = () => {
   const [list, setList] = useState([]);
   const [AccountBnoList, setAccountBnoList] = useState([]);
 
-  const changeBnm = (value) => {
-    fetchAccountList(value);
+  const bnmChange = (value) => {
+    fetchAccountBnoList(value);
   };
 
-  const changeBno = (value) => {
-    fetchAccountBnoList(value);
-  }
-
   useEffect(() => {
-    fetchAccountList();
+    fetchList();
   }, []);
 
-  const fetchAccountList = async () => {
+  const fetchList = async () => {
     try {
       const response = await fetchApi.get("/account");
       setList(response.data.data);
@@ -74,7 +70,7 @@ const OrdersForm = () => {
           showSearch
           placeholder="거래처명"
           optionFilterProp="children"
-          onChange={changeBnm}
+          onChange={bnmChange}
           filterOption={filterOption}
         >
           {list.map((account) => (
@@ -99,11 +95,10 @@ const OrdersForm = () => {
           showSearch
           placeholder="사업자 등록번호"
           optionFilterProp="children"
-          onChange={changeBno}
         >
-          {AccountBnoList.map((account) => (
-            <Select.Option value={account.bno} key={account.bno}>
-              {account.bno}
+          {AccountBnoList.map((value) => (
+            <Select.Option key={value.bno} value={value.bno} >
+              {value.bno}
             </Select.Option>
           ))}
         </Select>

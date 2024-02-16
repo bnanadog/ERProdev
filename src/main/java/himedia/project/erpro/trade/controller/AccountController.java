@@ -40,9 +40,9 @@ public class AccountController {
 	}
 	
 	// 거래처명이 일치하는 사업자등록번호 조회 - 정유진
-	@GetMapping("/account/bnm/{bnm}")
-	public ResponseEntity<Message> detailAccount(@PathVariable(value="bnm") String bnm){
-		List<String> idList = accountService.getBnoByBnm(bnm);
+	@GetMapping("/api/account/bnm/{bno}")
+	public ResponseEntity<Message<List<AccountDto>>> detailAccount(@PathVariable(value="bno") String bno){
+		List<AccountDto> idList = accountService.getBnoByBnm(bno);
 		Message returnData = new Message("거래처명과 일치하는 사업자번호", idList);
 		return new ResponseEntity<>(returnData, HttpStatus.OK);
 	}

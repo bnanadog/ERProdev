@@ -43,9 +43,12 @@ public class AccountService {
 	}
 	
 	// 거래처 사업자 등록번호 상세 조회 - 정유진
-	public List<String> getBnoByBnm(String name){
-		List<String> idList = accountRepository.findBnoByBnm(name);
-		return idList;
+	public List<AccountDto> getBnoByBnm(String bnm){
+		List<Account> idList = accountRepository.findBnoByBnm(bnm);
+		List<AccountDto> idDtoList = idList.stream()
+				.map(Account::toDto)
+				.collect(Collectors.toList());
+		return idDtoList;
 	}
   
 	// 거래처 추가
