@@ -19,13 +19,8 @@ const InspectionForm = () => {
                 message: "사업자번호를 입력해주세요",
               },
             ]}
-<<<<<<< HEAD
-          >
-            <Input style={{ width: "200px" }} />
-=======
           > 
             <Input style={{ width: "300px" }} />
->>>>>>> 10e179440f587385fdfc058d46dabd4906032591
           </Form.Item>
           <Form.Item
             label="신청자"
