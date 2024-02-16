@@ -2,14 +2,12 @@
 import React, { useEffect, useState } from "react";
 import { DatePicker, Form, Input, Select } from "antd";
 import fetchApi from "../../../../../../modules/api";
-import dayjs from "dayjs";
 
 // 대/소문자 구분없이 비교
 const filterOption = (input, option) =>
   (option?.label ?? "").toLowerCase().includes(input.toLowerCase());
 
 const ProductionForm = (props) => {
-  const today = dayjs();
   const [list, setList] = useState([]);
   const [memberList, setMemberList] = useState([]);
   const [ordersIdList, setOrdersIdList] = useState([]);
@@ -127,8 +125,8 @@ const ProductionForm = (props) => {
           onChange={orderIdChange}
         >
           {ordersIdList.map((value) => (
-            <Select.Option key={value} value={value}>
-              {value}
+            <Select.Option key={value.id} value={value.id}>
+              {value.id}
             </Select.Option>
           ))}
         </Select>
@@ -168,16 +166,10 @@ const ProductionForm = (props) => {
       >
         <Input />
       </Form.Item>
-      <Form.Item
-        label="단위"
-        name="unit"
-      >
+      <Form.Item label="단위" name="unit">
         <Input />
       </Form.Item>
-      <Form.Item
-        label="규격"
-        name="spec"
-      >
+      <Form.Item label="규격" name="spec">
         <Input />
       </Form.Item>
       <Form.Item
@@ -211,7 +203,7 @@ const ProductionForm = (props) => {
         </Select>
       </Form.Item>
       <Form.Item label="지시 일자" name="productionDate">
-        <DatePicker defaultValue={today} />
+        <DatePicker />
       </Form.Item>
     </div>
   );
