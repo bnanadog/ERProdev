@@ -44,11 +44,11 @@ public class AccountService {
 	
 	// 거래처 사업자 등록번호 상세 조회 - 정유진
 	public List<AccountDto> getBnoByBnm(String bnm){
-		List<Account> idList = accountRepository.findBnoByBnm(bnm);
-		List<AccountDto> idDtoList = idList.stream()
+		List<Account> bnoList = accountRepository.findBnoByBnm(bnm);
+		List<AccountDto> bnoDtoList = bnoList.stream()
 				.map(Account::toDto)
 				.collect(Collectors.toList());
-		return idDtoList;
+		return bnoDtoList;
 	}
   
 	// 거래처 추가
