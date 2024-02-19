@@ -20,6 +20,6 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 	// 거래처 목록 삭제
 	public int deleteAllByIdIn(List<Long> idList);
 	
-	@Query(value = "SELECT b_no FROM account WHERE b_nm = :bno", nativeQuery = true)
-	List<Account> findBnoByBnm(@Param("bno") String bno);
+	@Query(value = "SELECT b_no FROM account WHERE b_nm = :bnm", nativeQuery = true)
+	List<Account> findBnoByBnm(@Param("bnm") String bnm);
 }
