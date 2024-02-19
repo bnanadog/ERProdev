@@ -909,23 +909,6 @@ insert into bom values (48, 33, 4, 47, "-");
 insert into bom values (49, 33, 3, 20, "-");
 insert into bom values (50, 33, 2, 180, "-");
 
-<<<<<<< HEAD
-insert into inventory values (1, 10, "슈발베 RAPID ROB 폴딩 타이어", 1, 200, 10000, 100, 150, 200, 300, 200, 300, 100);
-insert into inventory values (2, 11, "WAKE 라이져핸들바", 1, 20, 3000, 50, 10, 25, 80, 15, 65, 25);
-insert into inventory values (3, 12, "DDK 더블폼 메모리 안장", 1, 100, 9000, 120, 12, 38, 40, 2, 38, 5);
-insert into inventory values (4, 13, "에르고스 액티브 621 안장", 3, 80, 9000, 200, 20, 50, 80, 30, 20, 35);
-insert into inventory values (5, 14, "DST-2060 3베어링 와이드 경량페달", 3, 120, 11000, 220, 35, 60, 70, 10, 35, 12);
-insert into inventory values (6, 14, "캐논도일 올뉴 하이모드", 4, 120, 1100000, 70, 35, 70, 70, 10, 35, 12);
-insert into inventory values (7, 14, "CBC 탐머신 SKR01 FU 울테라 ", 4, 120, 1200000, 220, 35, 50, 70, 10, 35, 12);
-insert into inventory values (8, 14, "ROCKBROS CNC 알루미늄 양면페달", 5, 120, 10000, 220, 130, 100, 70, 10, 35, 12);
-insert into inventory values (9, 14, "시마노 M311 크랭크", 5, 120, 8000, 220, 40, 60, 70, 10, 35, 12);
-insert into inventory values (10, 14, "모던 시크 가방발 세트 4p", 6, 400, 400, 220, 1000, 60, 70, 10, 35, 12);
-insert into inventory values (11, 14, "짧은 가방 가죽 스트랩", 6, 1300, 2000, 220, 2000, 60, 70, 10, 35, 12);
-insert into inventory values (12, 14, "라운드 나사형 리벳", 6, 2000, 4000, 220, 3000, 60, 70, 10, 35, 12);
-insert into inventory values (13, 14, "데일리 탑 핸드백", 7, 20, 135000, 220, 35, 60, 400, 10, 35, 12);
-insert into inventory values (14, 14, "고르고쉬 가죽 체인 백", 8, 30, 77000, 220, 35, 60, 70, 100, 35, 12);
-insert into inventory values (15, 14,  "케이글 데일리 크로스 바디백", 8, 300, 200000, 220, 35, 500, 70, 10, 35, 12);
-=======
 insert into inventory values (1, "3mm 스웨이드 가죽끈", 200, 10000, 0, 0, 200, 200, 0);
 insert into inventory values (2, "원형 스냅 단추", 20, 3000, 0, 0, 20, 20, 0);
 insert into inventory values (3, "가방 마감 직사각 링", 100, 9000, 0, 0, 100, 100, 0);
@@ -961,7 +944,6 @@ insert into inventory values (32, "포카스 헌터 아틀란티스5", 80, 9000,
 insert into inventory values (33, "데일리 탑 핸드백", 20, 135000, 0, 0, 20, 20, 0);
 insert into inventory values (34, "고르고쉬 가죽 체인 백", 30, 77000, 0, 0, 30, 30, 0);
 insert into inventory values (35, "케이글 데일리 크로스 바디백", 300, 200000, 0, 0, 300, 300, 0);
->>>>>>> 10e179440f587385fdfc058d46dabd4906032591
 
 insert into estimate values (1, 1, "2023-08-10", "2023-07-10", 1100000, "완료");
 insert into estimate values (2, 2, "2023-08-27", "2023-07-27", 165000, "완료");
