@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import fetchApi from "../../../../../../modules/api";
+import fetchApi from "../../../../../../img/modules/api";
 import { Button, Form, Input, Select, Space } from "antd";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 
@@ -139,16 +139,17 @@ const BomForm = ({ form, mode }) => {
                     ]}
                   >
                     <Select
-                      style={{ minWidth: 120 }}
+                      style={{ minWidth: 341 }}
                       onChange={(value) => onMaterialSelect(value, form, name)}
                     >
                       {itemList.map(
-                        (item) => 
+                        (item) =>
                           item.sort === "자재" && (
-                        <Select.Option key={item.id} value={item.id}>
-                          {item.itemName}
-                        </Select.Option>
-                      ))}
+                            <Select.Option key={item.id} value={item.id}>
+                              {item.itemName}
+                            </Select.Option>
+                          )
+                      )}
                     </Select>
                   </Form.Item>
                   <Form.Item {...restField} noStyle name={[name, "buyPrice"]}>

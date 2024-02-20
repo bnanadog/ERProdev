@@ -19,7 +19,7 @@ import OrdersItemForm from "./Form/order/OrdersItemForm";
 import InvoiceItemForm from "./Form/order/InvoiceItemForm";
 import EstimateItemForm from "./Form/order/EstimateItemForm";
 import InventoryForm from "./Form/inventory/InventoryForm";
-import fetchApi from "../../../../modules/api";
+import fetchApi from "../../../../img/modules/api";
 
 function CustomModal(props) {
   // antd의 Form관련 hook 사용을 위함
@@ -101,7 +101,7 @@ function CustomModal(props) {
       inputForm = <MemberForm mode={mode} />;
       break;
     case "orders":
-      inputForm = <OrdersForm />;
+      inputForm = <OrdersForm form={form} />;
       break;
     case "estimate":
       inputForm = <EstimateForm />;
@@ -123,13 +123,13 @@ function CustomModal(props) {
       inputForm = <StoreItemForm form={form} />;
       break;
     case "ordersItem":
-      inputForm = <OrdersItemForm />;
+      inputForm = <OrdersItemForm form={form} />;
       break;
     case "estimateItem":
-      inputForm = <EstimateItemForm />;
+      inputForm = <EstimateItemForm form={form} />;
       break;
     case "invoiceItem":
-      inputForm = <InvoiceItemForm />;
+      inputForm = <InvoiceItemForm form={form} />;
       break;
     case "inventory":
       inputForm = <InventoryForm />;
